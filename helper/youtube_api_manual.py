@@ -82,7 +82,6 @@ for video in video_response['items']:
     duration = isodate.parse_duration(iso_8601_duration) # Переводит все в нормальный читабельный вид
     # print(duration)
 
-
 '''
 получить статистику видео по его id
 получить id можно из адреса видео

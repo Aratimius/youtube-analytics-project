@@ -14,6 +14,7 @@ class Channel:
         self.__youtube = build('youtube', 'v3', developerKey=self.__api_key)
         self.__channel = self.__youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()
 
+
     def __str__(self):
         return f"{self.title} ({self.url})"
 
@@ -26,7 +27,7 @@ class Channel:
     def __lt__(self, other):
         return int(self.subscriber_count) < int(other.subscriber_count)
 
-    def __len__(self, other):
+    def __le__(self, other):
         return int(self.subscriber_count) <= int(other.subscriber_count)
 
     def __gt__(self, other):
