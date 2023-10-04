@@ -13,48 +13,26 @@ class Video:
                                        ).execute()
 
     def __str__(self):
-        if self.title is None:
-            return None
-        else:
-            return self.title
-
+        return self.video_title
     @property
     def video_id(self):
         return self.__video_id
 
     @property
-    def title(self):
-        try:
-            self.__video_response['items'][0]['snippet']['title']
-        except IndexError:
-            return None
-        else:
-            return self.__video_response['items'][0]['snippet']['title']
+    def video_title(self):
+        return self.__video_response['items'][0]['snippet']['title']
 
     @property
     def url(self):
-        if self.title is None:
-            return None
-        else:
-            return 'http://www.moscowpython.ru/meetup/14/gil-and-python-why/'
+        return 'http://www.moscowpython.ru/meetup/14/gil-and-python-why/'
 
     @property
     def view_count(self):
-        try:
-            self.__video_response['items'][0]['statistics']['viewCount']
-        except IndexError:
-            return None
-        else:
-            return self.__video_response['items'][0]['statistics']['viewCount']
+        return self.__video_response['items'][0]['statistics']['viewCount']
 
     @property
     def like_count(self):
-        try:
-            self.__video_response['items'][0]['statistics']['likeCount']
-        except IndexError:
-            return None
-        else:
-            return self.__video_response['items'][0]['statistics']['likeCount']
+        return self.__video_response['items'][0]['statistics']['likeCount']
 
 
 class PLVideo(Video):
